@@ -9,7 +9,8 @@ import java.util.*;
  * @author administrateur
  *
  */
-public class Hand {
+public abstract class HandAbstract {
+
 	private List<Carte> m_FiveCardHandList;
 	public boolean isStraightFlush;
 	public boolean isFourOfAKind;
@@ -19,8 +20,40 @@ public class Hand {
 	public boolean isTriple;
 	public boolean isTwoPairs;
 	public boolean isPair;
+	public int m_HandValue;
 
-	public Hand() {
+	public void getHandResult() {
+		int m_HandValue = 0;
+
+		if (this.isStraightFlush) {
+			m_HandValue = 180;
+
+		} else if (this.isFourOfAKind) {
+			m_HandValue = 160;
+		} else if (this.isFullHouse) {
+			m_HandValue = 140;
+		} else if (this.isFlush) {
+			m_HandValue = 120;
+		} else if (this.isStraight) {
+			m_HandValue = 100;
+		} else if (this.isTriple) {
+			m_HandValue = 80;
+		} else if (this.isTwoPairs) {
+			m_HandValue = 60;
+		} else if (this.isPair) {
+			m_HandValue = 40;
+		} else {
+			m_HandValue = 20;
+		}
+
+	}
+
+	public void getHandStrength()
+	{
+		
+	}
+	
+	public HandAbstract() {
 		this.m_FiveCardHandList = new ArrayList<Carte>();
 	}
 
@@ -33,7 +66,6 @@ public class Hand {
 			compteurTab = 0;
 			for (int j = 0; j < 5; j++) {
 				{
-
 					if (this.getCardFromHand().get(j).getCarteValue() == i) {
 						compteurTab++;
 					}
@@ -47,20 +79,19 @@ public class Hand {
 
 	}
 
-	public void checkHand()
-	{
-		this.checkIfFlush();
-		this.checkIfStraight();
-		this.checkIfStraightFlush();
+	/*
+	 * public void checkHand() { this.checkIfFlush(); this.checkIfStraight();
+	 * this.checkIfStraightFlush();
+	 * 
+	 * this.checkForAnythingElse(); }
+	 */
 
-		this.checkForAnythingElse();
-	}
 	public void checkForAnythingElse() {
 		boolean alreadyOnePair = false;
 		List<Integer> test = makeListOfFourteenIndex();
 		for (int i = 0; i < test.size(); i++) {
 
-			//String test=String.valueOf(i);
+			// String test=String.valueOf(i);
 			if (test.get(i) == 2 && alreadyOnePair) {
 				System.out.println("deuxieme pair de " + i);
 				this.isTwoPairs = true;
@@ -80,9 +111,8 @@ public class Hand {
 				this.isFourOfAKind = true;
 				System.out.println("carré de " + i);
 			}
-			if(this.isPair&&this.isTriple)
-			{
-				this.isFullHouse=true;
+			if (this.isPair && this.isTriple) {
+				this.isFullHouse = true;
 			}
 		}
 
@@ -154,8 +184,14 @@ public class Hand {
 		}
 	}
 
+	public String toString() {
+		return m_FiveCardHandList.get(0).toString() + m_FiveCardHandList.get(1).toString()
+				+ m_FiveCardHandList.get(2).toString() + m_FiveCardHandList.get(3).toString()
+				+ m_FiveCardHandList.get(4).toString();
+	}
+
 	public void sortHand() {
-		boolean sorted = false; 
+		boolean sorted = false;
 		Carte temp = new Carte();
 		while (!sorted) {
 			sorted = true;

@@ -10,7 +10,7 @@ package ca.csf.dfc.classe;
  */
 public class Carte {
 
-	public static String[] CHOIX_ATOUT = { "pique", "trefle", "coeur", "carreau" };
+	public static String[] CHOIX_ATOUT = { "pique", "trefle", "carreau", "carreau" };
 	public static String[] CHOIX_FACE = { "2", "3", "4", "5", "6", "7", "8", "9", "10", "J", "Q", "K", "A" };
 
 	private String m_Face;
@@ -22,11 +22,10 @@ public class Carte {
 		this.m_Atout = p_Atout;
 		this.m_Valeur = p_Valeur;
 	}
+
 //	seulement pour test
-	public Carte()
-	{
-		
-		
+	public Carte() {
+
 	}
 
 	public int getCarteValue() {
@@ -42,6 +41,6 @@ public class Carte {
 	}
 
 	public String toString() {
-		return this.m_Face + " de " + this.m_Atout +" valeur: "+ this.m_Valeur;
+		return this.m_Face + this.m_Atout;
 	}
 }

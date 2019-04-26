@@ -4,9 +4,10 @@
 package ca.csf.dfc.console;
 
 import ca.csf.dfc.classe.Carte;
-import ca.csf.dfc.classe.Hand;
 import ca.csf.dfc.classe.Paquet;
 import ca.csf.dfc.classe.Table;
+import ca.csf.dfc.vue.*;
+
 
 /**
  * @author administrateur
@@ -15,12 +16,16 @@ import ca.csf.dfc.classe.Table;
 public class Main {
 
 	/**
-	 * @param args
+	 * @param args 
 	 */
 	public static void main(String[] args) {
 
 
-		Table t=new Table();
+	
+		FenetreTableDeJeu tbdj= new FenetreTableDeJeu();
+		tbdj.setVisible(true);
+	
+		
 		
 		
 	}

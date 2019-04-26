@@ -3,7 +3,9 @@ package ca.csf.dfc.test;
 import static org.junit.jupiter.api.Assertions.*;
 
 import ca.csf.dfc.classe.Carte;
-import ca.csf.dfc.classe.Hand;
+ 
+import ca.csf.dfc.classe.HandAbstract;
+import ca.csf.dfc.classe.HandPlayer;
 
 class Test {
 
@@ -24,7 +26,7 @@ class Test {
 	@org.junit.jupiter.api.Test
 	void testStraightFourToEight() {
 
-		Hand h = new Hand();
+		HandAbstract h = new HandPlayer();
 
 		h.addCardToHand(six);
 		h.addCardToHand(cinq);
@@ -41,7 +43,7 @@ class Test {
 
 	@org.junit.jupiter.api.Test
 	void testStraightTrue2() {
-		Hand h = new Hand();
+		HandPlayer h = new HandPlayer();
 
 		Carte dixPique = new Carte("10", "pique", 10);
 		h.addCardToHand(dixPique);
@@ -57,7 +59,7 @@ class Test {
 
 	@org.junit.jupiter.api.Test
 	void testFalseStraight() {
-		Hand h = new Hand();
+		HandPlayer h = new HandPlayer();
 
 		h.addCardToHand(quatre);
 		h.addCardToHand(cinq);
@@ -71,7 +73,7 @@ class Test {
 
 	@org.junit.jupiter.api.Test
 	void testFlushTrue() {
-		Hand h = new Hand();
+		HandPlayer h = new HandPlayer();
 		h.addCardToHand(dix);
 		h.addCardToHand(cinq);
 		h.addCardToHand(douze);
@@ -84,7 +86,7 @@ class Test {
 
 	@org.junit.jupiter.api.Test
 	void testFlushFalse() {
-		Hand h = new Hand();
+		HandPlayer h = new HandPlayer();
 		Carte dixPique = new Carte("10", "pique", 10);
 		h.addCardToHand(dixPique);
 		h.addCardToHand(cinq);
@@ -98,7 +100,7 @@ class Test {
 
 	@org.junit.jupiter.api.Test
 	void testStraightFlush() {
-		Hand h = new Hand();
+		HandPlayer h = new HandPlayer();
 		h.addCardToHand(six);
 		h.addCardToHand(cinq);
 		h.addCardToHand(quatre);
@@ -114,7 +116,7 @@ class Test {
 
 	@org.junit.jupiter.api.Test
 	void testStraightFlushFalse() {
-		Hand h = new Hand();
+		HandPlayer h = new HandPlayer();
 		h.addCardToHand(quatre);
 		h.addCardToHand(cinq);
 		h.addCardToHand(dix);
@@ -130,7 +132,7 @@ class Test {
 
 	@org.junit.jupiter.api.Test
 	void testStraightFlushFalse2() {
-		Hand h = new Hand();
+		HandPlayer h = new HandPlayer();
 		Carte dixPique = new Carte("10", "pique", 10);
 		h.addCardToHand(dixPique);
 		h.addCardToHand(onze);
@@ -143,7 +145,7 @@ class Test {
 
 	@org.junit.jupiter.api.Test
 	void testFourOfAKind() {
-		Hand h = new Hand();
+		HandPlayer h = new HandPlayer();
 		Carte dixcoeur = new Carte("10", "coeur", 10);
 		Carte dixtriangle = new Carte("10", "triangle", 10);
 		Carte dixrond = new Carte("10", "rond", 10);
@@ -160,7 +162,7 @@ class Test {
 
 	@org.junit.jupiter.api.Test
 	void testFourOfAKindFalse() {
-		Hand h = new Hand();
+		HandPlayer h = new HandPlayer();
 		Carte dixcoeur = new Carte("11", "coeur", 11);
 		Carte dixtriangle = new Carte("10", "triangle", 10);
 		Carte dixrond = new Carte("10", "rond", 10);
@@ -177,7 +179,7 @@ class Test {
 
 	@org.junit.jupiter.api.Test
 	void testThreeOfAKind() {
-		Hand h = new Hand();
+		HandPlayer h = new HandPlayer();
 		Carte dixcoeur = new Carte("11", "coeur", 11);
 		Carte dixtriangle = new Carte("10", "triangle", 10);
 		Carte dixrond = new Carte("10", "rond", 10);
@@ -193,7 +195,7 @@ class Test {
 
 	@org.junit.jupiter.api.Test
 	void testThreeOfAKindFalse() {
-		Hand h = new Hand();
+		HandPlayer h = new HandPlayer();
 		Carte dixcoeur = new Carte("11", "coeur", 11);
 		Carte dixtriangle = new Carte("1", "triangle", 1);
 		Carte dixrond = new Carte("10", "rond", 10);
@@ -210,7 +212,7 @@ class Test {
 	@org.junit.jupiter.api.Test
 	void testTwoPair()
 	{
-		Hand h=new Hand();
+		HandPlayer h=new HandPlayer();
 
 		Carte dixrond = new Carte("10", "rond", 13);
 		Carte dixPique = new Carte("10", "pique", 12);
@@ -226,7 +228,7 @@ class Test {
 	@org.junit.jupiter.api.Test
 	void testTwoPairFalse()
 	{
-		Hand h=new Hand();
+		HandPlayer h=new HandPlayer();
 
 		Carte dixrond = new Carte("10", "rond", 1);
 		Carte dixPique = new Carte("10", "pique", 12);
@@ -242,7 +244,7 @@ class Test {
 	@org.junit.jupiter.api.Test
 	void testPairTrue()
 	{
-		Hand h=new Hand();
+		HandPlayer h=new HandPlayer();
 
 		Carte dixrond = new Carte("10", "rond", 1);
 		Carte dixPique = new Carte("10", "pique", 12);
@@ -258,7 +260,7 @@ class Test {
 	@org.junit.jupiter.api.Test
 	void testPairFalse()
 	{
-		Hand h=new Hand();
+		HandPlayer h=new HandPlayer();
 
         h.addCardToHand(quatre);
 		h.addCardToHand(trois);
@@ -272,7 +274,7 @@ class Test {
 	@org.junit.jupiter.api.Test
 	void testFullHouse()
 	{
-		Hand h = new Hand();
+		HandPlayer h = new HandPlayer();
 		Carte dixcoeur = new Carte("11", "coeur", 11);
 		Carte dixtriangle = new Carte("1", "triangle", 11);
 		Carte dixrond = new Carte("10", "rond", 5);

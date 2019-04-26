@@ -24,11 +24,18 @@ public class Paquet {
 	public int getNbPaquets() {
 		return this.m_NbPaquets;
 	}
-
+ 
 	public List<Carte> getCardListFromDeck() {
 		return this.m_CardListCardDeck;
 	}
 
+	public Carte distribuerCarte()
+	{
+		Carte c=new Carte();
+		c=m_CardListCardDeck.get(0);
+		m_CardListCardDeck.remove(0);
+		return c;
+	}
 	public Paquet(int p_NbPaquets) {
 		// this.m_PaquetDeCarte=new ArrayList<Carte>();
 		this.m_NbPaquets = p_NbPaquets;
