@@ -32,8 +32,8 @@ public class FenetreTableDeJeu extends JFrame {
 	private static final long serialVersionUID = 1L;
 
 	Table t=new Table();
-	VueMain mainJoueur =new VueMainJoueur(t);
-	VueMain mainCasino=new VueMainDuCasino(t);
+//	VueMain mainJoueur =new VueMainJoueur(t);
+	//VueMain mainCasino=new VueMainDuCasino(t);
 
 	public FenetreTableDeJeu() {
 		
@@ -42,8 +42,8 @@ public class FenetreTableDeJeu extends JFrame {
 		this.setDefaultCloseOperation(EXIT_ON_CLOSE);
 		this.setVisible(true);
 		this.getContentPane().setBackground(Color.cyan);
-		this.add(mainJoueur);
-		this.add(mainCasino);
+		//this.add(mainJoueur);
+		//this.add(mainCasino);
 		
  
 	}

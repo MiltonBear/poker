@@ -3,19 +3,15 @@
  */
 package ca.csf.dfc.classe;
 
-import java.util.*;
-
 /**
  * @author administrateur
  *
  */
-public class HandPlayer extends HandAbstract {
+public interface DiscardStrategy {
+
+	void DiscardACard(HandAbstract p_HandPlayer);
+	
 
 
 	
- 
-
-	
- 
-
 }
